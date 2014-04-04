@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=1024, minimum-scale=1, maximum-scale=1, user-scalable=1" />
+ 	<title>The Lauder Family Tree</title>
+ 	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script>
+$(function(){
+    $(".mask").click(function(){
+
+    	if(!$(".background_layer").hasClass("gray")) {
+    		$(".background_layer").toggleClass('gray');
+	    	$("#circle_mask_area").toggleClass('display').removeClass("animate");
+
+	    	$(".tap").html("X").addClass("tap_click");
+    	} else {
+    		$("#circle_mask_area").addClass("animate");
+    	}
+
+	    var offset = $(this).offset();
+    	var top = offset.top;
+    	var left = offset.left;
+
+    	$("#circle_mask_area").css({
+    		'top':top,
+    		'left':left,
+    		'background-position': '-' + left + 'px -' + top + 'px'
+    	});
+
+
+    });
+
+    $(".tap").click(function(){
+    	if($(this).hasClass("tap_click")) {
+	    	$(this).html("").removeClass("tap_click");
+	    	$(".background_layer").toggleClass('gray');
+	    	$("#circle_mask_area").toggleClass('display').removeClass("animate");
+    	}
+    });
+
+});
+</script>
+</head>
+<body>
+	<div class="background">
+		<div class="background_layer"></div>
+
+		<div id="circle_mask_area" class="display"></div>
+
+		<div class="tap">
+			
+		</div>
+
+		<div class="mask_area_01 mask"></div>
+		<div class="mask_area_02 mask"></div>
+		<div class="mask_area_03 mask"></div>
+		<div class="mask_area_04 mask"></div>
+		<div class="mask_area_05 mask"></div>
+		<div class="mask_area_06 mask"></div>
+		<div class="mask_area_07 mask"></div>
+		<div class="mask_area_08 mask"></div>
+		<div class="mask_area_09 mask"></div>
+		<div class="mask_area_10 mask"></div>
+		
+	</div>
+</body>
+</html>
